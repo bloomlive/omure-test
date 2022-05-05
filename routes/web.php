@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Run migrations with Database seeder (php artisan migrate:fresh --seed) to populate the required cities list to get started. Please make sure you have started you runner as well as seeder uses queue.';
+});
+
+Route::get('update', function() {
+   \App\Jobs\UpdateCitiesForecastsJob::dispatch();
 });
